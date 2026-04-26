@@ -684,10 +684,8 @@ nav[role='navigation'] li a svg {
 	margin: 0.5rem .4rem 0.5rem 0;
 }
 
-/* Constrain SVG icon sizes in header navigation */
+/* Reset leaflet's max-width:none for header nav SVGs so they size naturally */
 header nav li a svg {
-	width: 2.4rem;
-	height: 2.4rem;
-	max-width: none;
-	max-height: none;
+	max-width: 100%;
+	max-height: 100%;
 }
