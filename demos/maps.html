@@ -81,22 +81,25 @@
         <section>
           <div class="wrap size-70">
             <h2>How to Add a Map</h2>
-            <pre><code>&lt;!-- Include CSS --&gt;
+            <pre><code>&lt;!-- In &lt;head&gt; section --&gt;
 &lt;link rel="stylesheet" href="static/css/webslides.css"&gt;
 &lt;link rel="stylesheet" href="static/css/leaflet.css"&gt;
+&lt;link rel="stylesheet" href="static/css/Control.FullScreen.css"&gt;
 
-&lt;!-- Include JS --&gt;
+&lt;!-- In &lt;body&gt;, before closing &lt;/body&gt; tag --&gt;
+&lt;script src="static/js/webslides.js"&gt;&lt;/script&gt;
 &lt;script src="static/js/leaflet.js"&gt;&lt;/script&gt;
+&lt;script src="static/js/Control.FullScreen.js"&gt;&lt;/script&gt;
 
-&lt;!-- Map container --&gt;
+&lt;!-- Map container (anywhere in body) --&gt;
 &lt;div id="map" style="height: 400px;"&gt;&lt;/div&gt;
 
-&lt;!-- Initialize --&gt;
+&lt;!-- Initialize map (after Leaflet JS) --&gt;
 &lt;script&gt;
   var map = L.map('map').setView([51.505, -0.09], 13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '© OpenStreetMap'
+    attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 &lt;/script&gt;</code></pre>
           </div>
