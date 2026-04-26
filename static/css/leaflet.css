@@ -683,3 +683,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 nav[role='navigation'] li a svg {
 	margin: 0.5rem .4rem 0.5rem 0;
 }
+
+/* Constrain SVG icon sizes in header navigation */
+header nav li a svg {
+	width: 1.2rem;
+	height: 1.2rem;
+	max-width: none;
+	max-height: none;
+}
