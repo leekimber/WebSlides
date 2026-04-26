@@ -686,8 +686,8 @@ nav[role='navigation'] li a svg {
 
 /* Constrain SVG icon sizes in header navigation */
 header nav li a svg {
-	width: 1.2rem;
-	height: 1.2rem;
+	width: 2.4rem;
+	height: 2.4rem;
 	max-width: none;
 	max-height: none;
 }
