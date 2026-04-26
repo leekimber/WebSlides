@@ -678,3 +678,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-container {
 	z-index: 1000;
 }
+
+/* Fix header height - reduce SVG icon margin in navigation */
+nav[role='navigation'] li a svg {
+	margin: 0.5rem .4rem 0.5rem 0;
+}
