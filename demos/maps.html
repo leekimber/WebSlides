@@ -126,8 +126,11 @@
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
+          attribution: '© OpenStreetMap contributors'
         }).addTo(mapFull);
+
+        // Add scale bar
+        L.control.scale({imperial: true, metric: true}).addTo(mapFull);
 
         // Map 2: Context map (slide 3)
         var mapContext = L.map('map-context', {
@@ -136,8 +139,11 @@
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          attribution: '© OpenStreetMap'
+          attribution: '© OpenStreetMap contributors'
         }).addTo(mapContext);
+
+        // Add scale bar
+        L.control.scale({imperial: true, metric: true}).addTo(mapContext);
 
         // Map 3: Markers (slide 4)
         var mapMarkers = L.map('map-markers', {
@@ -147,8 +153,11 @@
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
-          attribution: '© OpenStreetMap'
+          attribution: '© OpenStreetMap contributors'
         }).addTo(mapMarkers);
+
+        // Add scale bar
+        L.control.scale({imperial: true, metric: true}).addTo(mapMarkers);
 
         // Custom colored markers
         var blueIcon = L.icon({
