@@ -3791,22 +3791,18 @@ Slides Index
   color: #abc; }
 
 /* Testing leaflet */
-#mapid { height: 380px; }
-#mapid1 { height: 380px; }
-#mapid2 { height: 380px; }
-#mapid3 { height: 380px; }
-#mapid4 { height: 380px; }
-#mapid5 { height: 380px; }
-#mapid6 { height: 380px; }
-#mapid7 { height: 380px; }
-#mapid8 { height: 380px; }
-#mapid9 { height: 380px; }
-/* Ends testing leaflet */
-
-.leaflet-container {
-    /* Add Leaflet CSS here */
-    /* required styles */
-
+#mapid,
+#mapid0,
+#mapid1,
+#mapid2,
+#mapid3,
+#mapid4,
+#mapid5,
+#mapid6,
+#mapid7,
+#mapid8,
+#mapid9,
+#mapid10 { height: 380px;
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -4463,3 +4459,4 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 }
+/* Ends testing leaflet */

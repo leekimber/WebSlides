@@ -7,10 +7,10 @@
     <title>WebSlides + Leaflet Maps</title>
     <meta name="description" content="Leaflet map integration demo for WebSlides">
 
-    <!-- CSS Base -->
+    <!-- CSS - Combined WebSlides + Leaflet with scoped selectors -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides-leaflet.css">
 
-    <!-- Optional - Fullscreen control for maps -->
+    <!-- Fullscreen control for maps -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/Control.FullScreen.css">
 
     <!-- FAVICONS -->
@@ -32,162 +32,271 @@
     </header>
 
     <main role="main">
-      <article id="webslides">
+      <article id="webslides" class="vertical">
 
         <!-- Slide 1: Title -->
         <section>
-          <div class="wrap">
+          <div class="wrap aligncenter">
             <h1><strong>Leaflet Maps</strong></h1>
             <p class="text-intro">Interactive maps in your WebSlides presentations.</p>
             <p>This demo shows how to integrate Leaflet.js maps with WebSlides CSS.</p>
           </div>
         </section>
 
-        <!-- Slide 2: Full-width map -->
-        <section class="fullscreen">
-          <div id="map-full" style="width: 100%; height: 100vh;"></div>
-        </section>
-
-        <!-- Slide 3: Map with content -->
-        <section>
-          <div class="wrap size-80">
-            <h2>Map with Context</h2>
-            <p>Maps can be embedded alongside explanatory content.</p>
-            <div id="map-context" style="width: 100%; height: 400px; margin: 2rem 0;"></div>
-            <div class="text-cols">
-              <div>
-                <h3>Left Column</h3>
-                <p>Use this space for descriptions, data, or narrative context about the map location.</p>
-              </div>
-              <div>
-                <h3>Right Column</h3>
-                <p>Add statistics, quotes, or related information that complements the visualization.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Slide 4: Multiple markers -->
+        <!-- Slide 2: Full map with markers -->
         <section>
           <div class="wrap">
-            <h2>Multiple Locations</h2>
-            <p>Plot multiple points with custom colored markers.</p>
-            <div id="map-markers" style="width: 100%; height: 500px;"></div>
+            <figure>
+              <div id="mapid" style="height: 500px;"></div>
+              <figcaption>
+                <p>Anomalous hills and gravel patches</p>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
-        <!-- Slide 5: Code example -->
+        <!-- Slide 3: Info -->
         <section>
-          <div class="wrap size-70">
-            <h2>How to Add a Map</h2>
-            <pre><code>&lt;!-- Include CSS --&gt;
-&lt;link rel="stylesheet" href="static/css/webslides-leaflet.css"&gt;
-
-&lt;!-- Include JS --&gt;
-&lt;script src="static/js/leaflet.js"&gt;&lt;/script&gt;
-
-&lt;!-- Map container --&gt;
-&lt;div id="map" style="height: 400px;"&gt;&lt;/div&gt;
-
-&lt;!-- Initialize --&gt;
-&lt;script&gt;
-  var map = L.map('map').setView([51.505, -0.09], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-&lt;/script&gt;</code></pre>
+          <div class="wrap size-80">
+            <h3><strong>Building a platform for storytelling</strong></h3>
+            <p><code>.text-cols (2 columns)</code>.</p>
+            <div class="text-cols">
+              <p>Humans are storytelling organisms that both individually and socially, lead storied lives. Stories mirror human thought as humans think in narrative structures and most often remember facts in story form.</p>
+            </div>
           </div>
         </section>
 
       </article>
     </main>
 
-    <!-- Required -->
-    <script src="../static/js/webslides.js"></script>
-    <script>
-      window.ws = new WebSlides();
-    </script>
+    <footer>
+      <!-- Required -->
+      <script src="../static/js/webslides.js"></script>
+      <script>
+        window.ws = new WebSlides();
+      </script>
 
-    <!-- Leaflet JS -->
-    <script src="../static/js/leaflet.js"></script>
-    <script src="../static/js/Control.FullScreen.js"></script>
+      <!-- Leaflet JS -->
+      <script src="../static/js/leaflet.js"></script>
+      <script src="../static/js/Control.FullScreen.js"></script>
 
-    <!-- Initialize maps -->
-    <script>
-      // Map 1: Full screen map (slide 2)
-      var mapFull = L.map('map-full', {
-        fullscreenControl: true,
-        scrollWheelZoom: false
-      }).setView([51.505, -0.09], 13);
+      <!-- Initialize map -->
+      <script>
+        // Set up colour icons:
+        var blueIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-blue.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var violetIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-violet.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var redIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-red.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var greenIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-green.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var orangeIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-orange.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var yellowIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-yellow.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var goldIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-gold.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var greyIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-grey.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var blackIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-2x-black.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var fireIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-fire.png',
+            //shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [41, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            //shadowSize: [41, 41]
+        });
+        var strikeIcon = new L.Icon({
+            iconUrl: '../static/images/map_icons/marker-icon-lightning.png',
+            shadowUrl: '../static/images/map_icons/marker-shadow.png',
+            iconSize: [41, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(mapFull);
+        // initialize Leaflet
+        // Centre of north London: 51.51317, -0.15888
+        // Centre of England: 52.561928, -1.464854
+        // Centre of England and Wales: 52.66, -1.85
+        // Centre of Great Britain: 54.00366, -2.547855
+        // Centre of Scotland: 56.816922, -4.18265
+        // Centre of United Kingdom: 54.093409, -2.89479
+        // Centre of Ireland: 53.4494762, -7.5029786
+        var map = L.map('mapid', {
+          scrollWheelZoom: false,
+          attributionControl: false,
+          fullscreenControl: true,
+          fullscreenControlOptions: {position: 'topleft'}
+        }).setView([51.51317, -0.15888], 8);
 
-      // Map 2: Context map (slide 3)
-      var mapContext = L.map('map-context', {
-        scrollWheelZoom: false
-      }).setView([52.5, -1.5], 7);
+        // add the OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-      }).addTo(mapContext);
+        // show the scale bar on the lower left corner
+        L.control.scale({imperial: true, metric: true}).addTo(map);
 
-      // Map 3: Markers (slide 4)
-      var mapMarkers = L.map('map-markers', {
-        fullscreenControl: true,
-        scrollWheelZoom: false
-      }).setView([51.505, -0.09], 10);
+        // show markers on the map
+        /* Straw-Worsley Lincolnshire gravel and sand patches: */
+        var marker1 = L.marker([52.6665008423738, -0.429557616438961], {icon: blueIcon}).addTo(map);
+        marker1.bindPopup("pit at Blossom Hill, Uffington").openPopup();
+        var marker2 = L.marker([52.6779663597832, -0.412875173836823], {icon: blueIcon}).addTo(map);
+        marker2.bindPopup("Casewick Cutting TF 074101").openPopup();
+        var marker3 = L.marker([52.7174312176127, -0.340376659317964], {icon: blueIcon}).addTo(map);
+        marker3.bindPopup("pit at Baston fen, Baston").openPopup();
+        var marker4 = L.marker([53.1204351044311,-0.172466818379391], {icon: blueIcon}).addTo(map);
+        marker4.bindPopup("pit at Tattershall Thorpe").openPopup();
+        var marker5 = L.marker([53.1481947371976,-0.165306802579197], {icon: blueIcon}).addTo(map);
+        marker5.bindPopup("Fox Hill, Kirkby Moor").openPopup();
+        var marker6 = L.marker([53.3769071205614,-0.0743068135380344], {icon: blueIcon}).addTo(map);
+        marker6.bindPopup("Quarries Welton-le-Wold").openPopup();
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-      }).addTo(mapMarkers);
+        /* Northern Yorkshire/Northumbrian line: */
+        var marker8 = L.marker([54.84468760930536, -1.4195909735319021], {icon: greenIcon}).addTo(map);
+        marker8.bindPopup("Warden Law Hill").openPopup();
+        var marker9 = L.marker([54.88324358073829, -1.4799935509881765], {icon: greenIcon}).addTo(map);
+        marker9.bindPopup("Penshaw Hill").openPopup();
+        var marker10 = L.marker([54.88058212901336, -1.517357583732329], {icon: greenIcon}).addTo(map);
+        marker10.bindPopup("Worm Hill, Fatfield").openPopup();
+        var marker11 = L.marker([54.91160165233002, -1.5613772314723189], {icon: greenIcon}).addTo(map);
+        marker11.bindPopup("Shadens Hill").openPopup();
 
-      // Custom colored markers
-      var blueIcon = L.icon({
-        iconUrl: '../static/images/map_icons/marker-icon-2x-blue.png',
-        shadowUrl: '../static/images/map_icons/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        /* Norfolk Devils Hills 1 */
+        var marker12 = L.marker([52.714715, 1.483758], {icon: blackIcon}).addTo(map);
+        marker12.bindPopup("(Neatishead) Hall Farm").openPopup();
+        var marker12a = L.marker([52.73028, 1.49706], {icon: redIcon}).addTo(map);
+        marker12a.bindPopup("(Possible Bunkder Hill, Irstead").openPopup();
+        var marker13 = L.marker([52.7230771838753,1.50516377513241], {icon: blackIcon}).addTo(map);
+        marker13.bindPopup("Great Reedham").openPopup();
+        var marker13a = L.marker([52.5649988759518,1.5967392617279], {icon: blackIcon}).addTo(map);
+        marker13a.bindPopup("Little Reedham").openPopup();
+        var marker14 = L.marker([52.7174746893739,1.51211980575511], {icon: blackIcon}).addTo(map);
+        marker14.bindPopup("How Hill").openPopup();
 
-      var redIcon = L.icon({
-        iconUrl: '../static/images/map_icons/marker-icon-2x-red.png',
-        shadowUrl: '../static/images/map_icons/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        /* Norfolk Devils Hills using diff Bunker Hill/Reedham data: */
+        var marker15 = L.marker([52.7321373808344,1.50292796335737], {icon: greyIcon}).addTo(map);
+        marker15.bindPopup("Irstead Shoals").openPopup();
+        var marker16 = L.marker([52.7174746893739,1.51211980575511], {icon: greyIcon}).addTo(map);
+        marker16.bindPopup("How Hill").openPopup();
+        var marker17 = L.marker([52.6865288268894,1.52443452339326], {icon: greyIcon}).addTo(map);
+        marker17.bindPopup("St Benet's Abbey").openPopup();
 
-      var greenIcon = L.icon({
-        iconUrl: '../static/images/map_icons/marker-icon-2x-green.png',
-        shadowUrl: '../static/images/map_icons/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
+        /* Places that need checking: */
+        var marker18 = L.marker([52.73028, 1.49706], {icon: redIcon}).addTo(map);
+        marker18.bindPopup("Possible location of Norfolk Bunker Hill").openPopup();
+        var marker19 = L.marker([52.675833, -0.168333], {icon: redIcon}).addTo(map);
+        marker19.bindPopup("Crowland gravel patch").openPopup();
 
-      // Add markers
-      L.marker([51.5, -0.09], {icon: blueIcon}).addTo(mapMarkers)
-        .bindPopup('Central London');
+        // Optional: shapes on the map:
+        var polyline = L.polyline([
+                [52.6665008423738, -0.429557616438961],
+                [52.6779663597832, -0.412875173836823],
+                [52.7174312176127, -0.340376659317964],
+                [53.1204351044311,-0.172466818379391],
+                [53.1481947371976,-0.165306802579197],
+                [53.3769071205614,-0.0743068135380344]], {
+                    color: 'blue',
+                    weight: 10,
+                    opacity: 0.7
+                }
+        ).addTo(map);
 
-      L.marker([51.51, -0.1], {icon: redIcon}).addTo(mapMarkers)
-        .bindPopup('Location A');
+        /* Yorkshire-Northumbria hills line: */
+        var polyline2 = L.polyline([
+                [54.84468760930536, -1.4195909735319021],
+                [54.88324358073829, -1.4799935509881765],
+                [54.88058212901336, -1.517357583732329],
+                [54.91160165233002, -1.5613772314723189]], {
+                    color: 'green',
+                    weight: 10,
+                    opacity: 0.7
+                }
+        ).addTo(map);
 
-      L.marker([51.49, -0.08], {icon: greenIcon}).addTo(mapMarkers)
-        .bindPopup('Location B');
+        /* Norfolk hills line 1: */
+        var polyline3 = L.polyline([
+                [52.714715, 1.483758],
+                [52.73028, 1.49706],
+                [52.7230771838753,1.50516377513241],
+                [52.5649988759518,1.5967392617279],
+                [52.7174746893739,1.51211980575511]], {
+                    color: 'black',
+                    weight: 10,
+                    opacity: 0.7
+                }
+        ).addTo(map);
 
-      L.marker([51.52, -0.11], {icon: blueIcon}).addTo(mapMarkers)
-        .bindPopup('Location C');
-    </script>
-
+        /* Norfolk hills line 2: */
+        var polyline4 = L.polyline([
+                [52.7321373808344,1.50292796335737],
+                [52.7174746893739,1.51211980575511],
+                [52.6865288268894,1.52443452339326]], {
+                    color: 'grey',
+                    weight: 10,
+                    opacity: 0.7
+                }
+        ).addTo(map);
+      </script>
+    </footer>
   </body>
 </html>
