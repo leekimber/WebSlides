@@ -7,10 +7,11 @@
     <title>WebSlides + Leaflet Maps</title>
     <meta name="description" content="Leaflet map integration demo for WebSlides">
 
-    <!-- CSS - Combined WebSlides + Leaflet with scoped selectors -->
-    <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides-leaflet.css">
+    <!-- CSS WebSlides -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides.css">
 
-    <!-- Fullscreen control for maps -->
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/leaflet.css">
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/Control.FullScreen.css">
 
     <!-- FAVICONS -->
@@ -47,7 +48,7 @@
         <section>
           <div class="wrap">
             <figure>
-              <div id="mapid" style="height: 500px;"></div>
+              <div id="mapid"></div>
               <figcaption>
                 <p>Anomalous hills and gravel patches</p>
               </figcaption>
@@ -173,13 +174,6 @@
         });
 
         // initialize Leaflet
-        // Centre of north London: 51.51317, -0.15888
-        // Centre of England: 52.561928, -1.464854
-        // Centre of England and Wales: 52.66, -1.85
-        // Centre of Great Britain: 54.00366, -2.547855
-        // Centre of Scotland: 56.816922, -4.18265
-        // Centre of United Kingdom: 54.093409, -2.89479
-        // Centre of Ireland: 53.4494762, -7.5029786
         var map = L.map('mapid', {
           scrollWheelZoom: false,
           attributionControl: false,
@@ -296,6 +290,9 @@
                     opacity: 0.7
                 }
         ).addTo(map);
+
+        // Set map height after initialization
+        document.getElementById('mapid').style.height = '500px';
       </script>
     </footer>
   </body>
