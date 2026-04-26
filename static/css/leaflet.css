@@ -655,3 +655,26 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		color-adjust: exact;
 		}
 	}
+
+/* WebSlides integration - map container height */
+#mapid {
+	height: 500px;
+	width: 100%;
+}
+
+/* Fix header overlap - ensure leaflet container has proper z-index */
+.leaflet-container {
+	z-index: 1;
+}
+
+/* Fix header overlap with map - push header down or raise map z-index */
+#mapid {
+	height: 500px;
+	width: 100%;
+	position: relative;
+	z-index: 1000;
+}
+
+.leaflet-container {
+	z-index: 1000;
+}
