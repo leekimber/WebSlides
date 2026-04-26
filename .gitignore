@@ -1,0 +1,21 @@
+# Claude session config
+.claude/
+
+# Certificates and keys
+*.pem
+*.key
+
+# Reference backups
+reference/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Node modules (if any)
+node_modules/
