@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WebSlides + Leaflet Maps</title>
+    <meta name="description" content="Leaflet map integration demo for WebSlides">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides-leaflet.css">
+
+    <!-- Optional - Fullscreen control for maps -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/Control.FullScreen.css">
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
+  </head>
+  <body>
+    <header role="banner">
+      <nav role="navigation">
+        <p class="logo"><a href="index.html" title="WebSlides">WebSlides</a></p>
+        <ul>
+          <li class="github">
+            <a rel="external" href="https://github.com/leekimber/WebSlides" title="Github">
+              <svg class="fa-github"><use xlink:href="#fa-github"></use></svg>
+              <em>WebSlides</em>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article id="webslides">
+
+        <!-- Slide 1: Title -->
+        <section>
+          <div class="wrap">
+            <h1><strong>Leaflet Maps</strong></h1>
+            <p class="text-intro">Interactive maps in your WebSlides presentations.</p>
+            <p>This demo shows how to integrate Leaflet.js maps with WebSlides CSS.</p>
+          </div>
+        </section>
+
+        <!-- Slide 2: Full-width map -->
+        <section class="fullscreen">
+          <div id="map-full" style="width: 100%; height: 100vh;"></div>
+        </section>
+
+        <!-- Slide 3: Map with content -->
+        <section>
+          <div class="wrap size-80">
+            <h2>Map with Context</h2>
+            <p>Maps can be embedded alongside explanatory content.</p>
+            <div id="map-context" style="width: 100%; height: 400px; margin: 2rem 0;"></div>
+            <div class="text-cols">
+              <div>
+                <h3>Left Column</h3>
+                <p>Use this space for descriptions, data, or narrative context about the map location.</p>
+              </div>
+              <div>
+                <h3>Right Column</h3>
+                <p>Add statistics, quotes, or related information that complements the visualization.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4: Multiple markers -->
+        <section>
+          <div class="wrap">
+            <h2>Multiple Locations</h2>
+            <p>Plot multiple points with custom colored markers.</p>
+            <div id="map-markers" style="width: 100%; height: 500px;"></div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Code example -->
+        <section>
+          <div class="wrap size-70">
+            <h2>How to Add a Map</h2>
+            <pre><code>&lt;!-- Include CSS --&gt;
+&lt;link rel="stylesheet" href="static/css/webslides-leaflet.css"&gt;
+
+&lt;!-- Include JS --&gt;
+&lt;script src="static/js/leaflet.js"&gt;&lt;/script&gt;
+
+&lt;!-- Map container --&gt;
+&lt;div id="map" style="height: 400px;"&gt;&lt;/div&gt;
+
+&lt;!-- Initialize --&gt;
+&lt;script&gt;
+  var map = L.map('map').setView([51.505, -0.09], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+&lt;/script&gt;</code></pre>
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+    <!-- Required -->
+    <script src="../static/js/webslides.js"></script>
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- Leaflet JS -->
+    <script src="../static/js/leaflet.js"></script>
+    <script src="../static/js/Control.FullScreen.js"></script>
+
+    <!-- Initialize maps -->
+    <script>
+      // Map 1: Full screen map (slide 2)
+      var mapFull = L.map('map-full', {
+        fullscreenControl: true,
+        scrollWheelZoom: false
+      }).setView([51.505, -0.09], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(mapFull);
+
+      // Map 2: Context map (slide 3)
+      var mapContext = L.map('map-context', {
+        scrollWheelZoom: false
+      }).setView([52.5, -1.5], 7);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(mapContext);
+
+      // Map 3: Markers (slide 4)
+      var mapMarkers = L.map('map-markers', {
+        fullscreenControl: true,
+        scrollWheelZoom: false
+      }).setView([51.505, -0.09], 10);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(mapMarkers);
+
+      // Custom colored markers
+      var blueIcon = L.icon({
+        iconUrl: '../static/images/map_icons/marker-icon-2x-blue.png',
+        shadowUrl: '../static/images/map_icons/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      var redIcon = L.icon({
+        iconUrl: '../static/images/map_icons/marker-icon-2x-red.png',
+        shadowUrl: '../static/images/map_icons/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      var greenIcon = L.icon({
+        iconUrl: '../static/images/map_icons/marker-icon-2x-green.png',
+        shadowUrl: '../static/images/map_icons/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      // Add markers
+      L.marker([51.5, -0.09], {icon: blueIcon}).addTo(mapMarkers)
+        .bindPopup('Central London');
+
+      L.marker([51.51, -0.1], {icon: redIcon}).addTo(mapMarkers)
+        .bindPopup('Location A');
+
+      L.marker([51.49, -0.08], {icon: greenIcon}).addTo(mapMarkers)
+        .bindPopup('Location B');
+
+      L.marker([51.52, -0.11], {icon: blueIcon}).addTo(mapMarkers)
+        .bindPopup('Location C');
+    </script>
+
+  </body>
+</html>
