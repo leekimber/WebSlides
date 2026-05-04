@@ -2348,7 +2348,20 @@ var Touch = function () {
         var diffX = this.startX_ - this.endX_;
         var diffY = this.startY_ - this.endY_;
 
-        // It's an horizontal drag
+        // Mobile devices: vertical swipes navigate, horizontal reserved
+        if (__WEBPACK_IMPORTED_MODULE_0__utils_mobile_detector__["a" /* default */].isAny()) {
+          if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > this.ws_.options.slideOffset) {
+            if (diffY < 0) {
+              this.ws_.goNext(); // Swipe up
+            } else {
+              this.ws_.goPrev(); // Swipe down
+            }
+          }
+          // Horizontal swipe: reserved for future feature (do nothing)
+          return;
+        }
+
+        // Desktop: horizontal swipes navigate
         if (Math.abs(diffX) > Math.abs(diffY)) {
           if (diffX < -this.ws_.options.slideOffset) {
             this.ws_.goPrev();
