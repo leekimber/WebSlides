@@ -24,6 +24,44 @@
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
+
+    <style>
+      /* Gallery thumbnail placeholders */
+      .placeholder-thumbnail {
+        height: 200px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+      }
+      .placeholder-thumbnail.gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+      .placeholder-thumbnail.gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+      .placeholder-thumbnail.gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+      .placeholder-thumbnail.gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+      .placeholder-thumbnail.gradient-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+      .placeholder-thumbnail.gradient-6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+      .placeholder-thumbnail figcaption {
+        color: #fff;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      }
+
+      .placeholder-thumbnail h2 {
+        font-size: 1.1rem;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .placeholder-thumbnail time {
+        font-size: 0.8rem;
+        opacity: 0.9;
+      }
+
+      /* Remove default figure margin when using placeholder */
+      figure.placeholder-thumbnail {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <header role="banner">
@@ -80,28 +118,66 @@
             <p class="text-intro">Slide decks and presentations built with WebSlides.</p>
 
             <ul class="flexblock gallery">
-              <!-- Placeholder - add your presentation links here -->
-              <li class="placeholder-item">
-                <div style="padding: 2rem; text-align: center; background: #f9f9f9; border: 2px dashed #ddd; border-radius: 4px;">
-                  <p>Presentation galleries will appear here.</p>
-                  <p><small>Edit <code>demos/index.html</code> to add gallery items.</small></p>
-                </div>
-              </li>
-
-              <!-- Example gallery item (uncomment and customize) -->
-              <!--
               <li>
-                <a href="keynote.html" title="Presentation Title">
-                  <figure>
-                    <img src="../static/images/demos-why.png" alt="Thumbnail">
+                <a href="why-webslides.html" title="Why WebSlides?">
+                  <figure class="placeholder-thumbnail gradient-1">
                     <figcaption>
-                      <h2>Presentation Title</h2>
-                      <time datetime="2026-01-01">Jan 01, 2026</time>
+                      <h2>Why WebSlides?</h2>
+                      <time datetime="2017-01-08">Jan 08, 2017</time>
                     </figcaption>
                   </figure>
                 </a>
               </li>
-              -->
+              <li>
+                <a href="landings.html" title="Landings">
+                  <figure class="placeholder-thumbnail gradient-2">
+                    <figcaption>
+                      <h2>Landings</h2>
+                      <time datetime="2017-01-07">Jan 07, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="portfolios.html" title="Portfolios">
+                  <figure class="placeholder-thumbnail gradient-3">
+                    <figcaption>
+                      <h2>Portfolios</h2>
+                      <time datetime="2017-01-06">Jan 06, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="keynote.html" title="Apple Keynote">
+                  <figure class="placeholder-thumbnail gradient-4">
+                    <figcaption>
+                      <h2>Apple Keynote</h2>
+                      <time datetime="2017-01-05">Jan 05, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="netflix-culture.html" title="Netflix's Culture">
+                  <figure class="placeholder-thumbnail gradient-5">
+                    <figcaption>
+                      <h2>Netflix's Culture</h2>
+                      <time datetime="2017-03-16">Mar 16, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              <li>
+                <a href="orig_index.html" title="Original Demos Index">
+                  <figure class="placeholder-thumbnail gradient-6">
+                    <figcaption>
+                      <h2>Original Demos</h2>
+                      <time datetime="2017-01-04">Jan 04, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
             </ul>
           </div>
         </section>
@@ -113,28 +189,26 @@
             <p class="text-intro">Longform articles and documentation.</p>
 
             <ul class="flexblock gallery">
-              <!-- Placeholder - add your article links here -->
-              <li class="placeholder-item">
-                <div style="padding: 2rem; text-align: center; background: #f9f9f9; border: 2px dashed #ddd; border-radius: 4px;">
-                  <p>Article galleries will appear here.</p>
-                  <p><small>Edit <code>demos/index.html</code> to add gallery items.</small></p>
-                </div>
-              </li>
-
-              <!-- Example gallery item (uncomment and customize) -->
-              <!--
               <li>
-                <a href="longforms.html" title="Article Title">
-                  <figure>
-                    <img src="../static/images/demos-longforms.png" alt="Thumbnail">
+                <a href="longforms.html" title="Longform Articles">
+                  <figure class="placeholder-thumbnail gradient-1">
                     <figcaption>
-                      <h2>Article Title</h2>
-                      <time datetime="2026-01-01">Jan 01, 2026</time>
+                      <h2>Longform Articles</h2>
+                      <time datetime="2017-04-15">Apr 15, 2017</time>
                     </figcaption>
                   </figure>
                 </a>
               </li>
-              -->
+              <li>
+                <a href="interviews.html" title="Interviews">
+                  <figure class="placeholder-thumbnail gradient-2">
+                    <figcaption>
+                      <h2>Interviews</h2>
+                      <time datetime="2017-04-14">Apr 14, 2017</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
             </ul>
           </div>
         </section>
