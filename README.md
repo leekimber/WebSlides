@@ -23,8 +23,14 @@ This fork modifies the original WebSlides to be **fully self-contained**:
 # Install reloadserver (if not already installed)
 pip install reloadserver
 
+# Or for better long-term consistency:
+pipx install reloadserver
+
+# Create a combined self-signed key+certificate for HTTPS:
+openssl req -x509 -newkey rsa:2048 -nodes -out ~/projects/dev-server.pem -keyout ~/projects/dev-server.pem -days 365 -subj "/CN=localhost" 
+
 # Start server with HTTPS
-reloadserver 8444 --certificate reference/server.pem
+reloadserver 8444 --certificate ~/projects/dev-server.pem
 
 # Browse to: https://localhost:8444/demos/
 ```
