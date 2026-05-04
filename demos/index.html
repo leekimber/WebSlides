@@ -10,6 +10,9 @@
     <!-- CSS Base -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides.css">
 
+    <!-- CSS SVG Icons -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
+
     <!-- FAVICONS -->
     <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
     <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
@@ -21,278 +24,177 @@
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
-
-    <style>
-      /* Gallery Index Styles - matches WebSlides aesthetic */
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-
-      header {
-        background: #fff;
-        border-bottom: 1px solid #e0e0e0;
-        padding: 1rem 0;
-      }
-
-      header nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      header nav .logo a {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #333;
-        text-decoration: none;
-      }
-
-      header nav ul {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-      }
-
-      header nav ul li a {
-        color: #666;
-        text-decoration: none;
-        font-size: 0.95rem;
-      }
-
-      header nav ul li a:hover {
-        color: #333;
-      }
-
-      main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 3rem 2rem;
-      }
-
-      .hero {
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        font-weight: 300;
-        margin-bottom: 1rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-        color: #666;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .category-section {
-        margin-bottom: 4rem;
-      }
-
-      .category-section h2 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #333;
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-
-      .gallery-item {
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        overflow: hidden;
-        transition: box-shadow 0.2s ease;
-        text-decoration: none;
-        color: inherit;
-        display: block;
-      }
-
-      .gallery-item:hover {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      }
-
-      .gallery-item figure {
-        margin: 0;
-        position: relative;
-        padding-top: 56.25%; /* 16:9 aspect ratio */
-        background: #f5f5f5;
-        overflow: hidden;
-      }
-
-      .gallery-item figure img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .gallery-item .meta {
-        padding: 1rem 1.25rem;
-      }
-
-      .gallery-item .meta h3 {
-        font-size: 1rem;
-        font-weight: 500;
-        margin: 0 0 0.5rem 0;
-      }
-
-      .gallery-item .meta p {
-        font-size: 0.875rem;
-        color: #888;
-        margin: 0;
-      }
-
-      .gallery-item .meta time {
-        font-size: 0.75rem;
-        color: #aaa;
-      }
-
-      /* Placeholder for empty categories */
-      .placeholder {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 3rem;
-        background: #f9f9f9;
-        border: 2px dashed #ddd;
-        border-radius: 4px;
-        color: #999;
-      }
-
-      footer {
-        background: #f5f5f5;
-        padding: 2rem 0;
-        margin-top: 4rem;
-        text-align: center;
-        color: #666;
-        font-size: 0.9rem;
-      }
-
-      footer a {
-        color: #666;
-        margin: 0 1rem;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        color: #333;
-      }
-
-      @media (max-width: 768px) {
-        header nav {
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem;
-        }
-
-        header nav ul {
-          gap: 1rem;
-        }
-
-        .hero h1 {
-          font-size: 1.75rem;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
     <header role="banner">
       <nav role="navigation">
         <p class="logo"><a href="index.html" title="Home">WebSlides Gallery</a></p>
         <ul>
-          <li><a href="#presentations">Presentations</a></li>
-          <li><a href="#articles">Articles</a></li>
-          <li><a href="about.html" title="About">About</a></li>
-          <li><a href="contact.html" title="Contact">Contact</a></li>
+          <li><a href="#slide=2" title="Presentations">Presentations</a></li>
+          <li><a href="#slide=3" title="Articles">Articles</a></li>
+          <li><a href="#slide=4" title="About">About</a></li>
+          <li><a href="#slide=5" title="Contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main role="main">
-      <section class="hero">
-        <h1>WebSlides Gallery</h1>
-        <p>Browse presentations and articles crafted with WebSlides. Swipe up/down on mobile, use arrow keys on desktop.</p>
-      </section>
+      <article id="webslides">
 
-      <!-- Category: Presentations -->
-      <section id="presentations" class="category-section">
-        <h2>Presentations</h2>
-        <div class="gallery-grid">
-          <!-- Placeholder - add your presentation links here -->
-          <div class="placeholder">
-            <p>Presentation galleries will appear here as you add them.</p>
-            <p><small>To add: edit <code>demos/index.html</code> and insert gallery items.</small></p>
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+        <!-- SLIDE 1: Hero / Title -->
+        <section>
+          <div class="wrap">
+            <h1><strong>WebSlides Gallery</strong></h1>
+            <p class="text-intro">Browse presentations and articles crafted with WebSlides.<br>
+            Swipe up/down on mobile, use arrow keys on desktop.</p>
+            <p><a href="#slide=2" title="Browse Presentations"><strong>Start Browsing &darr;</strong></a></p>
           </div>
+        </section>
 
-          <!-- Example gallery item (uncomment and customize) -->
-          <!--
-          <a href="keynote.html" class="gallery-item">
-            <figure>
-              <img src="../static/images/demos-why.png" alt="Thumbnail">
-            </figure>
-            <div class="meta">
-              <h3>Presentation Title</h3>
-              <p>Short description goes here.</p>
-              <time datetime="2026-01-01">Jan 01, 2026</time>
-            </div>
-          </a>
-          -->
-        </div>
-      </section>
+        <!-- SLIDE 2: Presentations Category -->
+        <section class="bg-white">
+          <div class="wrap">
+            <h2>Presentations</h2>
+            <p class="text-intro">Slide decks and presentations built with WebSlides.</p>
 
-      <!-- Category: Articles -->
-      <section id="articles" class="category-section">
-        <h2>Articles</h2>
-        <div class="gallery-grid">
-          <!-- Placeholder - add your article links here -->
-          <div class="placeholder">
-            <p>Article galleries will appear here as you add them.</p>
-            <p><small>To add: edit <code>demos/index.html</code> and insert gallery items.</small></p>
+            <ul class="flexblock gallery">
+              <!-- Placeholder - add your presentation links here -->
+              <li class="placeholder-item">
+                <div style="padding: 2rem; text-align: center; background: #f9f9f9; border: 2px dashed #ddd; border-radius: 4px;">
+                  <p>Presentation galleries will appear here.</p>
+                  <p><small>Edit <code>demos/index.html</code> to add gallery items.</small></p>
+                </div>
+              </li>
+
+              <!-- Example gallery item (uncomment and customize) -->
+              <!--
+              <li>
+                <a href="keynote.html" title="Presentation Title">
+                  <figure>
+                    <img src="../static/images/demos-why.png" alt="Thumbnail">
+                    <figcaption>
+                      <h2>Presentation Title</h2>
+                      <time datetime="2026-01-01">Jan 01, 2026</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              -->
+            </ul>
           </div>
+        </section>
 
-          <!-- Example gallery item (uncomment and customize) -->
-          <!--
-          <a href="longforms.html" class="gallery-item">
-            <figure>
-              <img src="../static/images/demos-longforms.png" alt="Thumbnail">
-            </figure>
-            <div class="meta">
-              <h3>Article Title</h3>
-              <p>Short description goes here.</p>
-              <time datetime="2026-01-01">Jan 01, 2026</time>
+        <!-- SLIDE 3: Articles Category -->
+        <section>
+          <div class="wrap">
+            <h2>Articles</h2>
+            <p class="text-intro">Longform articles and documentation.</p>
+
+            <ul class="flexblock gallery">
+              <!-- Placeholder - add your article links here -->
+              <li class="placeholder-item">
+                <div style="padding: 2rem; text-align: center; background: #f9f9f9; border: 2px dashed #ddd; border-radius: 4px;">
+                  <p>Article galleries will appear here.</p>
+                  <p><small>Edit <code>demos/index.html</code> to add gallery items.</small></p>
+                </div>
+              </li>
+
+              <!-- Example gallery item (uncomment and customize) -->
+              <!--
+              <li>
+                <a href="longforms.html" title="Article Title">
+                  <figure>
+                    <img src="../static/images/demos-longforms.png" alt="Thumbnail">
+                    <figcaption>
+                      <h2>Article Title</h2>
+                      <time datetime="2026-01-01">Jan 01, 2026</time>
+                    </figcaption>
+                  </figure>
+                </a>
+              </li>
+              -->
+            </ul>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: About -->
+        <section class="bg-white">
+          <div class="wrap">
+            <h2>About This Gallery</h2>
+            <p class="text-intro">This gallery showcases presentations and articles built with WebSlides.</p>
+
+            <div class="grid">
+              <div class="column">
+                <h3>About WebSlides</h3>
+                <p>WebSlides is a minimal HTML/CSS/JS framework for creating presentations and landings. Each <code>&lt;section&gt;</code> element represents a slide.</p>
+              </div>
+              <div class="column">
+                <h3>About This Fork</h3>
+                <p>This is <strong>WebSlides Vanilla</strong> — a self-contained, offline-ready fork. All fonts, assets, and dependencies are local. No external CDN calls.</p>
+              </div>
             </div>
-          </a>
-          -->
-        </div>
-      </section>
+
+            <p class="aligncenter" style="margin-top: 2rem;">
+              <a href="https://github.com/webslides/webslides" title="WebSlides on GitHub">WebSlides on GitHub</a> |
+              <a href="#slide=5" title="Contact">Contact</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: Contact -->
+        <section>
+          <div class="wrap">
+            <h2>Contact</h2>
+            <p class="text-intro">Have questions or feedback? Get in touch.</p>
+
+            <ul class="flexblock">
+              <li>
+                <a href="mailto:your-email@example.com">
+                  <svg class="fa-envelope"><use xlink:href="#fa-envelope"></use></svg>
+                  <h2>Email</h2>
+                  <p>your-email@example.com</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/leekimber/WebSlides" rel="external">
+                  <svg class="fa-github"><use xlink:href="#fa-github"></use></svg>
+                  <h2>GitHub</h2>
+                  <p>leekimber/WebSlides</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/webslides" rel="external">
+                  <svg class="fa-twitter"><use xlink:href="#fa-twitter"></use></svg>
+                  <h2>Twitter</h2>
+                  <p>@WebSlides</p>
+                </a>
+              </li>
+            </ul>
+
+            <p class="aligncenter" style="margin-top: 2rem;">
+              <a href="#slide=1" title="Back to Home">&uarr; Back to Home</a>
+            </p>
+          </div>
+        </section>
+
+      </article>
     </main>
 
-    <footer role="contentinfo">
-      <p>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://github.com/webslides/webslides" rel="external">WebSlides on GitHub</a>
-      </p>
-      <p>Built with WebSlides</p>
-    </footer>
+    <!-- WebSlides JavaScript -->
+    <script src="../static/js/webslides.js"></script>
+    <script>
+      // Initialize WebSlides with vertical navigation for mobile-friendly swipe
+      window.ws = new WebSlides({
+        autoslide: false,
+        loop: true,
+        showIndex: true
+      });
+    </script>
   </body>
 </html>
