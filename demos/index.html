@@ -1,52 +1,14 @@
 <!doctype html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CLEAN MARKUP = GOOD KARMA.
-      Hi source code lover,
-
-      you're a curious person and a fast learner ;)
-      Let's make something beautiful together. Contribute on Github:
-      https://github.com/webslides/webslides
-
-      Thanks,
-      @jlantunez.
-    -->
-
-    <!-- SEO -->
-    <title>WebSlides Demos</title>
-    <meta name="description" content="Beautiful HTML presentations and websites made with WebSlides.">
-
-    <!-- URL CANONICAL -->
-    <!-- <link rel="canonical" href="http://your-url.com/permalink"> -->
-
-    <!-- Google Fonts -->
+    <title>WebSlides Gallery</title>
+    <meta name="description" content="Browse presentations and articles made with WebSlides.">
 
     <!-- CSS Base -->
-    <link rel="stylesheet" type='text/css' media='all' href="../static/css/webslides.css">
-
-    <!-- Optional - CSS SVG Icons (Font Awesome) -->
-    <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
-
-    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
-
-    <!-- FACEBOOK -->
-    <meta property="og:url" content="http://your-url.com/permalink"> <!-- EDIT -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="WebSlides Demos"> <!-- EDIT -->
-    <meta property="og:description" content="Beautiful HTML presentations and websites made with WebSlides."> <!-- EDIT -->
-    <meta property="og:updated_time" content="2017-01-04T17:22:34"> <!-- EDIT -->
-    <meta property="og:image" content="static/images/share-webslides.jpg" > <!-- EDIT -->
-
-    <!-- TWITTER -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@webslides"> <!-- EDIT -->
-    <meta name="twitter:creator" content="@jlantunez"> <!-- EDIT -->
-    <meta name="twitter:title" content="WebSlides Demos"> <!-- EDIT -->
-    <meta name="twitter:description" content="Beautiful HTML presentations and websites made with WebSlides."> <!-- EDIT -->
-    <meta name="twitter:image" content="static/images/share-webslides.jpg"> <!-- EDIT -->
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/webslides.css">
 
     <!-- FAVICONS -->
     <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
@@ -57,208 +19,280 @@
     <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
     <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
 
-    <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
+
+    <style>
+      /* Gallery Index Styles - matches WebSlides aesthetic */
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      header {
+        background: #fff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 1rem 0;
+      }
+
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      header nav .logo a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #333;
+        text-decoration: none;
+      }
+
+      header nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      header nav ul li a {
+        color: #666;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      header nav ul li a:hover {
+        color: #333;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .category-section {
+        margin-bottom: 4rem;
+      }
+
+      .category-section h2 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #333;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .gallery-item {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: box-shadow 0.2s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .gallery-item:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .gallery-item figure {
+        margin: 0;
+        position: relative;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+        background: #f5f5f5;
+        overflow: hidden;
+      }
+
+      .gallery-item figure img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gallery-item .meta {
+        padding: 1rem 1.25rem;
+      }
+
+      .gallery-item .meta h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0 0 0.5rem 0;
+      }
+
+      .gallery-item .meta p {
+        font-size: 0.875rem;
+        color: #888;
+        margin: 0;
+      }
+
+      .gallery-item .meta time {
+        font-size: 0.75rem;
+        color: #aaa;
+      }
+
+      /* Placeholder for empty categories */
+      .placeholder {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        background: #f9f9f9;
+        border: 2px dashed #ddd;
+        border-radius: 4px;
+        color: #999;
+      }
+
+      footer {
+        background: #f5f5f5;
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      footer a {
+        color: #666;
+        margin: 0 1rem;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: #333;
+      }
+
+      @media (max-width: 768px) {
+        header nav {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        header nav ul {
+          gap: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <header role="banner">
       <nav role="navigation">
-        <p class="logo"><a href="index.html" title="WebSlides">WebSlides</a></p>
+        <p class="logo"><a href="index.html" title="Home">WebSlides Gallery</a></p>
         <ul>
-          <li class="github">
-            <a rel="external" href="https://github.com/webslides/webslides" title="Github">
-              <svg class="fa-github">
-                <use xlink:href="#fa-github"></use>
-              </svg>
-              <em>WebSlides</em>
-            </a>
-          </li>
-          <li class="twitter">
-            <a rel="external" href="https://twitter.com/webslides" title="Twitter">
-              <svg class="fa-twitter">
-                <use xlink:href="#fa-twitter"></use>
-              </svg>
-              <em>@WebSlides</em>
-            </a>
-          </li>
-          <!--  <li class="dribbble"><a rel="external" href="http://dribbble.com/webslides" title="Dribbble"><svg class="fa-dribbble"><use xlink:href="#fa-dribbble"></use></svg> <em>webslides</em></a></li> -->
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="about.html" title="About">About</a></li>
+          <li><a href="contact.html" title="Contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main role="main">
-      <article>  <!-- Slideshow? id="webslides" -->
+      <section class="hero">
+        <h1>WebSlides Gallery</h1>
+        <p>Browse presentations and articles crafted with WebSlides. Swipe up/down on mobile, use arrow keys on desktop.</p>
+      </section>
 
-        <!-- Quick Guide
-          - Each parent <section> in the <article id="webslides"> element is an individual slide.
-          - Vertical sliding = <article id="webslides" class="vertical">
-          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
-        -->
+      <!-- Category: Presentations -->
+      <section id="presentations" class="category-section">
+        <h2>Presentations</h2>
+        <div class="gallery-grid">
+          <!-- Placeholder - add your presentation links here -->
+          <div class="placeholder">
+            <p>Presentation galleries will appear here as you add them.</p>
+            <p><small>To add: edit <code>demos/index.html</code> and insert gallery items.</small></p>
+          </div>
 
-        <section>
-          <span class="background-right" style="background-image:url('https://webslides.tv/static/images/architecture.png')"></span>
-          <!--.wrap = container (width: 90%) -->
-          <div class="wrap">
-            <h1><strong>WebSlides Demos</strong></h1>
-            <p class="text-intro">All of these presentations are free and responsive.<br>
-              40+ <a href="components.html" title="WebSlides Components">components</a> with a solid <a href="classes.html" title="WebSlides Classes">CSS architecture</a>.</p>
-            <p>Share your slides using <a href="https://twitter.com/search?q=%23webslides&amp;src=typd" title="#WebSlides on Twitter">#WebSlides</a>.</p>
-          </div>
-          <!-- .end .wrap -->
-        </section>
-        <section class="bg-white">
-          <!-- .wrap = container (width: 90%) -->
-          <div class="wrap">
-            <ul class="flexblock gallery">
-              <li>
-                <a href="why-webslides.html" title="Why WebSlides?">
-                  <figure>
-                    <img alt="Thumbnail Why WebSlides?" src="https://webslides.tv/static/images/demos-why.png">
-                    <figcaption>
-                      <h2>Why WebSlides?</h2>
-                      <time datetime="2017-01-08T16:21:44-08:00">Jan 08, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="landings.html" title="Landings">
-                  <figure>
-                    <img alt="Thumbnail Landings" src="https://webslides.tv/static/images/demos-landings.png">
-                    <figcaption>
-                      <h2>Landings</h2>
-                      <time datetime="2017-01-07T19:21:26-08:00">Jan 07, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="portfolios.html" title="Portfolios">
-                  <figure>
-                    <img alt="Thumbnail Portfolios" src="https://webslides.tv/static/images/demos-portfolios.png">
-                    <figcaption>
-                      <h2>Portfolios</h2>
-                      <time datetime="2017-01-06T21:22:21-08:00">Jan 06, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="keynote.html" title="Apple Keynote">
-                  <figure>
-                    <img alt="Thumbnail Apple Keynote" src="https://webslides.tv/static/images/demos-apple.png">
-                    <figcaption>
-                      <h2>Apple Keynote</h2>
-                      <time datetime="2017-01-05T20:13:48-08:00">Jan 05, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="netflix-culture.html" title="Netflix's Culture">
-                  <figure>
-                    <img alt="Thumbnail Netflix's Culture" src="https://webslides.tv/static/images/demos-netflix.png">
-                    <figcaption>
-                      <h2>Netflix's Culture</h2>
-                      <time datetime="2017-04-16T20:16:48-08:00">Mar 16, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="longforms.html" title="Longform Articles">
-                  <figure>
-                    <img alt="Thumbnail Apple Keynote" src="https://webslides.tv/static/images/demos-longforms.png">
-                    <figcaption>
-                      <h2>Longforms</h2>
-                      <time datetime="2017-04-15T20:16:48-08:00">Apr 15, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="interviews.html" title="Interviews">
-                  <figure>
-                    <img alt="Thumbnail Apple Keynote" src="https://webslides.tv/static/images/demos-interviews.png">
-                    <figcaption>
-                      <h2>Interviews</h2>
-                      <time datetime="2017-04-14T24:08:16-24:32">Apr 14, 2017</time>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <!-- .end .wrap -->
-        </section>
-        <section>
-          <!--.wrap = container (width: 90%) with fadein animation -->
-          <div class="wrap">
-            <h2 class="aligncenter">General Questions</h2>
-            <p class="aligncenter">WebSlides Documentation: <a href="components.html" title="WebSlides Components">Components</a> &middot; <a href="classes.html" title="WebSlides Classes">Classes</a> &middot; <a href="media.html" title="WebSlides Media">Media</a>.</p>
-            <div class="grid">
-              <div class="column">
-                <h6>Why WebSlides? Good karma</h6>
-                <p>There're excellent presentation tools out there. WebSlides is about telling and sharing stories. Hypertext, clean code, and beauty as narrative elements.</p>
-                <h6>Is WebSlides a framework?</h6>
-                <p>We're all tired of heavy CSS frameworks. WebSlides is a starting point that provides basic <a href="components.html" title="WebSlides Components">structural components</a> and a scalable <a href="classes.html" title="WebSlides Classes">CSS architecture</a>.</p>
-              </div>
-              <!-- end .column -->
-              <div class="column">
-                <figure><img class="aligncenter" src="../static/images/setup.png" alt="WebSlides Files"></figure>
-              </div>
-              <!-- end .column -->
-              <div class="column">
-                <h6>What can you do with WebSlides?</h6>
-                <p>WebSlides is a cute solution for making HTML presentations, landings, and portfolios. <a href="components.html#slide=15">Put content wherever you want</a>, add <a href="media.html#slide=2">background images, videos</a>...
-                </p>
-                <h6>How easy is WebSlides?</h6>
-                <p>You can create your own presentation instantly. Just a basic knowledge of HTML and CSS is required. Simply choose a demo and customize it.</p>
-              </div>
-              <!-- end .column -->
+          <!-- Example gallery item (uncomment and customize) -->
+          <!--
+          <a href="keynote.html" class="gallery-item">
+            <figure>
+              <img src="../static/images/demos-why.png" alt="Thumbnail">
+            </figure>
+            <div class="meta">
+              <h3>Presentation Title</h3>
+              <p>Short description goes here.</p>
+              <time datetime="2026-01-01">Jan 01, 2026</time>
             </div>
-            <!-- end .grid -->
-          </div>
-          <!-- end .wrap -->
-        </section>
-        <section class="bg-white aligncenter">
-          <!-- .wrap = container (width: 90%) -->
-          <div class="wrap">
-            <h2><strong>Start in seconds</strong> </h2>
-            <p class="text-intro">Create your own presentation instantly. <br>120+ premium slides ready to use.</p>
-            <p>
-              <a href="https://webslides.tv/webslides-latest.zip" class="button" title="Download WebSlides">
-                <svg class="fa-cloud-download">
-                  <use xlink:href="#fa-cloud-download"></use>
-                </svg>
-                Free Download
-              </a>
-              <span class="try">
-                <a href="https://www.paypal.me/jlantunez/8" title="Good karma :)">
-                  <svg class="fa-paypal">
-                    <use xlink:href="#fa-paypal"></use>
-                  </svg>
-                  Pay what you want.
-                </a>
-              </span>
-            </p>
-          </div>
-          <!-- .end .wrap -->
-        </section>
+          </a>
+          -->
+        </div>
+      </section>
 
-      </article>
+      <!-- Category: Articles -->
+      <section id="articles" class="category-section">
+        <h2>Articles</h2>
+        <div class="gallery-grid">
+          <!-- Placeholder - add your article links here -->
+          <div class="placeholder">
+            <p>Article galleries will appear here as you add them.</p>
+            <p><small>To add: edit <code>demos/index.html</code> and insert gallery items.</small></p>
+          </div>
+
+          <!-- Example gallery item (uncomment and customize) -->
+          <!--
+          <a href="longforms.html" class="gallery-item">
+            <figure>
+              <img src="../static/images/demos-longforms.png" alt="Thumbnail">
+            </figure>
+            <div class="meta">
+              <h3>Article Title</h3>
+              <p>Short description goes here.</p>
+              <time datetime="2026-01-01">Jan 01, 2026</time>
+            </div>
+          </a>
+          -->
+        </div>
+      </section>
     </main>
-    <!-- end main -->
 
-    <!-- Required -->
-    <script src="../static/js/webslides.js"></script>
-    <script>
-      window.ws = new WebSlides();
-    </script>
-
-    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
-    <script defer src="../static/js/svg-icons.js"></script>
-
+    <footer role="contentinfo">
+      <p>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/webslides/webslides" rel="external">WebSlides on GitHub</a>
+      </p>
+      <p>Built with WebSlides</p>
+    </footer>
   </body>
 </html>
